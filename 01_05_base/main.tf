@@ -10,7 +10,7 @@ variable "ssh_key_name" {}
 variable "private_key_path" {}
 
 variable "region" {
-  default = "us-east-2"
+  default = "eu-west-3"
 }
 
 variable "vpc_cidr" {
@@ -38,6 +38,10 @@ provider "aws" {
 resource "aws_vpc" "vpc1" {
   cidr_block = var.vpc_cidr
   enable_dns_hostnames = "true"
+
+  tags = {
+    Name = "studyVPC"
+  }
 }
 
 # SUBNET
